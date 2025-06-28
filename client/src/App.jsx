@@ -8,6 +8,7 @@ import Agent from "./features/agents/Agent";
 import Contact from "./features/contacts/Contact";
 import AgentContacts from "./features/contacts/SingleContactByAgents";
 import Home from "./components/Home";
+import NotFound from "./components/NotFound";
 
 function App() {
 
@@ -16,7 +17,6 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
 
           <Route
             path="/dashboard"
@@ -34,7 +34,6 @@ function App() {
               </PrivateRoute>
             }
           />
-
           <Route
             path="/contact/upload"
             element={
@@ -44,13 +43,17 @@ function App() {
             }
           />
           <Route
-            path="/agents/:id/contacts" 
+            path="/agents/:id/contacts"
             element={
               <PrivateRoute>
                 <AgentContacts />
               </PrivateRoute>
             }
           />
+
+          {/* ✅ Login and 404 outside Layout */}
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>
