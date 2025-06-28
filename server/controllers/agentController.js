@@ -9,7 +9,6 @@ import expressAsyncHandler from "express-async-handler";
 
 export const registerAgent = expressAsyncHandler(async (req, res) => {
     const { name, email, phone, password } = req.body;
-    console.log(req.body)
 
     if(!name || !email || !phone || !password){
         return res.status(400).json({ message: "All fields are required" });
@@ -53,7 +52,6 @@ export const getAllAgents = expressAsyncHandler(async (req, res) => {
 // @access  protect
 export const deleteAgent = expressAsyncHandler(async (req, res) => {
     const { id } = req.body;
-    console.log(id);
     if(!id){
         return res.status(400).json({ message: "Agent ID required" });
     }
