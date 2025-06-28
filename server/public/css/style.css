@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background: #000;
+    color: #fff;
+    display: grid;
+    height: 100vh;
+    place-content: center;
+    width: 100vw;
+    overflow: hidden;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 1rem;
+}
