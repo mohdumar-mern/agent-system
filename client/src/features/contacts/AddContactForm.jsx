@@ -40,6 +40,7 @@ const AddContactForm = () => {
 
     try {
       await addNewContact(formData).unwrap();
+      
     } catch (err) {
       console.error("Upload failed:", err);
     }

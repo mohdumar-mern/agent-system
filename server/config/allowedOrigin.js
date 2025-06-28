@@ -1,5 +1,6 @@
 export const allowOrigin = [
-    'http://localhost:8080',
+    'https://agent-system-bp82.onrender.com/api',
     'http://localhost:5173',
+    'https://agent-system-chi.vercel.app/'
 ]
 

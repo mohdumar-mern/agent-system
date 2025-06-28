@@ -23,9 +23,7 @@ const AgentContacts = () => {
 
   if (!contacts || contacts.length === 0) {
     return (
-      <div className="p-6 text-gray-500">
-        No contacts found for this agent.
-      </div>
+      <div className="p-6 text-gray-500">No contacts found for this agent.</div>
     );
   }
 

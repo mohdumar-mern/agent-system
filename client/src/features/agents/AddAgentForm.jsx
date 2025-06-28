@@ -32,7 +32,9 @@ const AddAgentForm = () => {
     if (!form.name || !form.email || !form.phone || !form.password) return;
     try {
       await addNewAgent(form).unwrap();
+      alert("Agent added successfully!");
     } catch (err) {
+      alert("Failed to add agent. Please try again.");
       console.error("Agent creation failed:", err);
     }
   };
@@ -61,6 +63,7 @@ const AddAgentForm = () => {
             id="name"
             name="name"
             value={form.name}
+            placeholder="John Doe"
             onChange={handleChange}
             className="w-full border px-3 py-2 rounded outline-none focus:ring-2 focus:ring-blue-500"
             required
@@ -75,6 +78,7 @@ const AddAgentForm = () => {
             id="email"
             type="email"
             name="email"
+            placeholder="example@example.com"
             value={form.email}
             onChange={handleChange}
             className="w-full border px-3 py-2 rounded outline-none focus:ring-2 focus:ring-blue-500"

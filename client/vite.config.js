@@ -11,7 +11,7 @@ export default defineConfig({
   base: './',
   server: {
     proxy: {
-      '/api': 'http://localhost:8080' // ✅ match your backend port
+      '/api': 'https://agent-system-bp82.onrender.com/api' // ✅ match your backend port
     }
   }
 })
