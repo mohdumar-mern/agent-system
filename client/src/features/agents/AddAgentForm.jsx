@@ -22,6 +22,7 @@ const AddAgentForm = () => {
 
   useEffect(() => {
     if (isSuccess) {
+      alert("Agent added successfully!");
       setForm({ name: "", email: "", phone: "", password: "" });
       // Optional: show success toast/alert here
     }
@@ -32,9 +33,7 @@ const AddAgentForm = () => {
     if (!form.name || !form.email || !form.phone || !form.password) return;
     try {
       await addNewAgent(form).unwrap();
-      alert("Agent added successfully!");
     } catch (err) {
-      alert("Failed to add agent. Please try again.");
       console.error("Agent creation failed:", err);
     }
   };

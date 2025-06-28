@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_BACKEND_API,
+    baseUrl: import.meta.env.VITE_BACKEND_API || 'https://agent-system-bp82.onrender.com/api',
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("token");
 
