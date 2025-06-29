@@ -9,8 +9,8 @@ const Home = () => {
           Welcome to Agent Distribution System
         </h1>
         <p className="text-gray-600 text-lg md:text-xl mb-8">
-          Effortlessly manage your agents, distribute contacts equally,
-          and keep everything organized with our smart dashboard.
+          Effortlessly manage your agents, distribute contacts equally, and keep
+          everything organized with our smart dashboard.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center">

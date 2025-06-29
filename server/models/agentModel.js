@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const agentSchema = new mongoose.Schema({
   name: {
@@ -6,7 +6,7 @@ const agentSchema = new mongoose.Schema({
     required: true,
   },
   email: {
-    type:String,
+    type: String,
     required: true,
     unique: true,
     lowercase: true,
@@ -21,6 +21,4 @@ const agentSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('Agent', agentSchema);
-
-
+export default mongoose.model("Agent", agentSchema);

@@ -1,62 +1,48 @@
 import AddContactForm from "./AddContactForm";
-import {
-  useGetContactsQuery,
-  selectAllContacts,
-} from "./contactApiSlice";
+import { useGetContactsQuery, selectAllContacts } from "./contactApiSlice";
 import { useSelector } from "react-redux";
 
 const Contact = () => {
-  const {
-    isLoading,
-    isSuccess,
-    isError,
-    error,
-    refetch,
-  } = useGetContactsQuery();
+  const { isLoading, isSuccess, isError, error, refetch } =
+    useGetContactsQuery();
 
   const allContacts = useSelector(selectAllContacts);
 
   // Group contacts by agent or "Unassigned"
   const groupedContacts = {};
-  allContacts.forEach((contact) => {
+  allContacts?.forEach((contact) => {
     const key = contact.assignedTo || "Unassigned";
     if (!groupedContacts[key]) groupedContacts[key] = [];
     groupedContacts[key].push(contact);
   });
 
-  if (isLoading) {
-    return (
-      <div className="p-6 text-center">
-        <h1 className="text-gray-600 text-lg">Loading contacts...</h1>
-      </div>
-    );
-  }
-
-  if (isError) {
-    return (
-      <div className="p-6 text-center">
-        <h1 className="text-red-500 font-semibold">
-          Error: {error?.data?.message || "Failed to fetch contacts"}
-        </h1>
-        <button
-          onClick={refetch}
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-        >
-          Retry
-        </button>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen p-6 bg-gray-50">
-      {/* Add Contact Form */}
+      {/* 🧾 Contact Upload Form (Always Visible) */}
       <div className="p-6 max-w-md mx-auto rounded shadow bg-white">
         <AddContactForm />
+
+        {isLoading && (
+          <p className="text-center text-gray-500 mt-4">Loading contacts...</p>
+        )}
+
+        {isError && (
+          <div className="text-center mt-4">
+            <p className="text-red-600 font-semibold">
+              Error: {error?.data?.message || "Failed to fetch contacts"}
+            </p>
+            <button
+              onClick={refetch}
+              className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            >
+              Retry
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Display grouped contacts */}
-      {isSuccess && (
+      {/* 📊 Contact Display */}
+      {isSuccess && allContacts?.length > 0 && (
         <div className="mt-10">
           <h2 className="text-xl font-semibold mb-4 text-gray-700">
             Distributed Contacts by Agent
@@ -79,6 +65,13 @@ const Contact = () => {
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* 🟡 Fallback if no contacts */}
+      {isSuccess && allContacts?.length === 0 && (
+        <div className="text-center mt-6 text-gray-600">
+          No contacts uploaded yet.
         </div>
       )}
     </div>

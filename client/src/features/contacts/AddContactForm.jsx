@@ -40,7 +40,6 @@ const AddContactForm = () => {
 
     try {
       await addNewContact(formData).unwrap();
-      
     } catch (err) {
       console.error("Upload failed:", err);
     }
@@ -52,10 +51,7 @@ const AddContactForm = () => {
         Upload & Distribute Contacts
       </h1>
 
-      <form
-        onSubmit={handleUpload}
-        className="bg-white p-6 max-w-md space-y-4"
-      >
+      <form onSubmit={handleUpload} className="bg-white p-6 max-w-md space-y-4">
         {isError && (
           <p className="text-red-600 text-sm">
             {error?.data?.message || "Upload failed"}

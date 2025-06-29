@@ -14,7 +14,6 @@ router
   .get(getAllAgents)
   .delete(deleteAgent);
 
-  router.get("/:agentId/contacts", protect, getContactsByAgent);
-  
+router.get("/:agentId/contacts", protect, getContactsByAgent);
 
 export default router;

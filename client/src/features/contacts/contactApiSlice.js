@@ -69,7 +69,7 @@ export const selectContactsResult =
 
 const selectContactsData = createSelector(
   selectContactsResult,
-  (contactsResult) => contactsResult?.data
+  (contactsResult) => contactsResult?.data,
 );
 
 export const {
@@ -77,5 +77,5 @@ export const {
   selectById: selectContactById,
   selectIds: selectContactIds,
 } = contactAdapter.getSelectors(
-  (state) => selectContactsData(state) ?? initialState
+  (state) => selectContactsData(state) ?? initialState,
 );

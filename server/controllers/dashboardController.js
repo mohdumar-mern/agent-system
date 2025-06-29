@@ -8,7 +8,6 @@ export const getDashboardStats = expressAsyncHandler(async (req, res) => {
   try {
     // Fetch the count of agents
     const agentCount = await Agent.countDocuments();
-    
 
     // Fetch the count of contacts
     const contactCount = await Contact.countDocuments();

@@ -42,18 +42,22 @@ export const agentApiSlice = apiSlice.injectEndpoints({
 
     // Delete agent
     deleteAgent: builder.mutation({
-      query: ( id ) => ({
+      query: (id) => ({
         url: `/agents`,
         method: "DELETE",
         body: { id },
       }),
       invalidatesTags: (result, error, arg) => [{ type: "Agent", id: arg.id }],
-    })
+    }),
   }),
 });
 
 // ✅ Hooks
-export const { useGetAgentsQuery, useAddNewAgentMutation, useDeleteAgentMutation } = agentApiSlice;
+export const {
+  useGetAgentsQuery,
+  useAddNewAgentMutation,
+  useDeleteAgentMutation,
+} = agentApiSlice;
 
 // ✅ Select Query Result
 export const selectAgentsResult = agentApiSlice.endpoints.getAgents.select();
@@ -61,7 +65,7 @@ export const selectAgentsResult = agentApiSlice.endpoints.getAgents.select();
 // ✅ Fixed: Memoized Selector with Fallback
 const selectAgentsData = createSelector(
   selectAgentsResult,
-  (agentsResult) => agentsResult?.data ?? initialState // ✅ Fallback added
+  (agentsResult) => agentsResult?.data ?? initialState, // ✅ Fallback added
 );
 
 // ✅ Export Normalized Selectors

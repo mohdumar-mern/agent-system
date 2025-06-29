@@ -12,12 +12,11 @@ const Login = () => {
   };
 
   const token = localStorage.getItem("token");
- useEffect(() =>{
-  if (token) {
-    
-    navigate("/dashboard");
-  }
- },[token, navigate]);
+  useEffect(() => {
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, [token, navigate]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

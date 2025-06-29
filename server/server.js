@@ -71,6 +71,6 @@ mongoose.connection.on("error", (err) => {
   console.error("❌ MongoDB connection error:", err);
   logEvents(
     `${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`,
-    "mongoErrLog.log"
+    "mongoErrLog.log",
   );
 });
