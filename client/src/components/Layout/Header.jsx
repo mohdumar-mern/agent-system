@@ -18,7 +18,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-blue-600">
-          MERN Agent System
+          Agent Distribution System
         </Link>
 
         {/* Desktop Nav */}
