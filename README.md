@@ -78,13 +78,4 @@ npm run dev
 cd client
 npm run dev
 
----
 
-### 🧠 Tips
-
-- Replace `yourusername`, `your_demo_link`, and credentials if needed.
-- You can also generate a fancy README from:
-  👉 [https://readme.so](https://readme.so/) – easy drag & drop builder.
-
-Would you like me to generate and upload this into your repo or give it as a downloadable `.md` file?
-```
